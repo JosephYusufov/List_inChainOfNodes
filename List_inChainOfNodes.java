@@ -50,14 +50,37 @@ public class List_inChainOfNodes{
 
       @return true, in keeping with conventions yet to be discussed
      */
-     public boolean addAsHead( Object val) {
+    public boolean addAsHead( Object val) {
         headReference = new Node( val, headReference);
         return true;
-     }
-
-    public Node set( int index, Object newValue ) {
-        Object toReturn = refArray[index];
-        refArray[index] = newValue;
-        return toReturn;
     }
+
+    public boolean add( int index, Object val) {
+        Node newNode = new Node(val);
+        for (int i = 0; i < index ; i++) {
+            current = current.getReferenceToNextNode();
+        }
+
+        current.setReferenceToNextNode(newNode);
+
+                //iterate to the rest of the list, reassign references
+        }
+    }
+
+    public void set( int index, Object newValue ) {
+        Node current = headReference;
+        for (int i = 0; i < index ; i++) {
+            current = current.getReferenceToNextNode();
+        }
+        current.setCargoReference(newValue);
+    }
+
+    public Object get( int index){
+        Node current = headReference;
+        for (int i = 0; i < index ; i++) {
+            current = current.getReferenceToNextNode();
+        }
+        return current.getCargoReference();
+    }
+
 }
