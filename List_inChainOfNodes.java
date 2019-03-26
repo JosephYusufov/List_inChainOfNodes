@@ -54,4 +54,10 @@ public class List_inChainOfNodes{
         headReference = new Node( val, headReference);
         return true;
      }
+
+    public Node set( int index, Object newValue ) {
+        Object toReturn = refArray[index];
+        refArray[index] = newValue;
+        return toReturn;
+    }
 }
